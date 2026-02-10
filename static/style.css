@@ -1,0 +1,242 @@
+/* GLOBAL STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    background-color: #f4f7fe;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 250px;
+    background-color: #ffffff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4A90E2;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #718096;
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s;
+}
+
+nav a:hover, nav a.active {
+    background-color: #EBF4FF;
+    color: #4A90E2;
+}
+
+/* MAIN CONTENT */
+.main-content {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+h1 {
+    color: #2D3748;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #718096;
+    margin-bottom: 30px;
+}
+
+/* UPLOAD ZONE */
+.upload-container {
+    border: 2px dashed #CBD5E0;
+    border-radius: 12px;
+    background-color: #ffffff;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: 30px;
+}
+
+.upload-container:hover {
+    border-color: #4A90E2;
+    background-color: #F7FAFC;
+}
+
+.upload-icon {
+    font-size: 30px;
+    color: #4A90E2;
+    margin-bottom: 10px;
+}
+
+/* RESULTS GRID (Side by Side) */
+.results-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* This forces the side-by-side layout */
+    gap: 20px;
+    height: calc(100vh - 350px);
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.card-header {
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #eee;
+    font-weight: 600;
+    color: #4A90E2;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.content {
+    padding: 20px;
+    overflow-y: auto;
+    flex: 1;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #4a5568;
+    white-space: pre-wrap; /* Preserves formatting */
+}
+
+/* --- THE DOWNLOAD BUTTON STYLE --- */
+.download-btn {
+    background-color: #28a745; /* Green */
+    color: white;
+    border: none;
+    padding: 6px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.download-btn:hover {
+    background-color: #218838;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e0; 
+    border-radius: 4px;
+}
+/* ... existing CSS ... */
+
+/* HISTORY GRID */
+.history-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding-top: 10px;
+}
+
+.history-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.history-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    border-color: #4A90E2;
+}
+
+.history-title {
+    font-weight: 600;
+    color: #2D3748;
+    margin-bottom: 10px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.history-preview {
+    font-size: 13px;
+    color: #718096;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Shows only 3 lines of text */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.history-footer {
+    font-size: 12px;
+    color: #A0AEC0;
+    text-align: right;
+    border-top: 1px solid #f7f7f7;
+    padding-top: 10px;
+}
+/* ... existing CSS ... */
+
+/* New Header Layout for History Cards */
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Delete Button Style */
+.delete-btn {
+    background: none;
+    border: none;
+    color: #cbd5e0;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 5px;
+    transition: color 0.2s;
+    z-index: 10; /* Ensures it sits on top */
+}
+
+.delete-btn:hover {
+    color: #e53e3e; /* Red on hover */
+}

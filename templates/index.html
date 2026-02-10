@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Notes Summarizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="logo">
+            <i class="fas fa-brain"></i> StudyAI
+        </div>
+        <nav>
+            <a href="#" id="nav-dashboard" class="active" onclick="showDashboard()">
+                <i class="fas fa-home"></i> Dashboard
+            </a>
+            <a href="#" id="nav-history" onclick="showHistory()">
+                <i class="fas fa-history"></i> History
+            </a>
+            <a href="#"><i class="fas fa-cog"></i> Settings</a>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        
+        <div id="dashboard-view">
+            <h1>Real-Time Notes Summarizer</h1>
+            <p class="subtitle">Upload your notes (PDF, Image, Text) for instant revision.</p>
+
+            <div class="upload-container" id="drop-zone">
+                <input type="file" id="file-input" hidden accept=".pdf,.png,.jpg,.jpeg,.txt">
+                <div class="upload-icon">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                </div>
+                <p>Drag & Drop files here or Browse</p>
+            </div>
+
+            <div class="results-grid" id="results-area" style="display: none;">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-file-alt"></i> Extracted Text
+                    </div>
+                    <div class="content" id="extracted-text"></div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+                        <span><i class="fas fa-pen-fancy"></i> AI Summary & Quiz</span>
+                        <button id="download-btn" onclick="downloadPDF()" class="download-btn" style="display: none;">
+                            <i class="fas fa-file-pdf"></i> Download PDF
+                        </button>
+                    </div>
+                    <div class="content" id="ai-result"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="history-view" style="display: none;">
+            <h1>Your Study History</h1>
+            <p class="subtitle">Access your past summaries and quizzes anytime.</p>
+            
+            <div id="history-list" class="history-grid"></div>
+        </div>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
