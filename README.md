@@ -1,5 +1,3 @@
-# Notes_Summarizer
-
 # 🧠 Notes Summarizer (StudyAI)
 
 A **Flask-based AI Notes Summarizer** that allows users to upload notes in **PDF, image, or text format**, extract text using **OCR**, and generate a **clean AI-powered summary with a self-check quiz** using **Hugging Face (Qwen 2.5)**.
